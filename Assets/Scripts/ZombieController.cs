@@ -3,22 +3,19 @@ using UnityEngine.AI;
 
 public class ZombieController : MonoBehaviour
 {
-    [SerializeField]
-    private NavMeshAgent agent;
-
-    [SerializeField]
-    private float attackRange = 2f;
-
-    [SerializeField]
-    private float attackDamage = 10f;
-
-    [SerializeField]
-    private float attackCooldown = 1f;
+    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private float attackRange = 2f;
+    [SerializeField] private float attackDamage = 10f;
+    [SerializeField] private float attackCooldown = 1f;
 
     private Transform player;
-    private Animator animator; // Add this variable
-
+    private Animator animator;
     private float nextAttackTime;
+
+    public float AttackDamage
+    {
+        get { return attackDamage; }
+    }
 
     void Start()
     {
@@ -28,8 +25,7 @@ public class ZombieController : MonoBehaviour
             agent = GetComponent<NavMeshAgent>();
         }
 
-        animator = GetComponent<Animator>(); // Get Animator component
-        
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -37,39 +33,29 @@ public class ZombieController : MonoBehaviour
         if (player != null)
         {
             agent.SetDestination(player.position);
-            // Calculate the distance between zombie and player
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-            // If within attack range, trigger attack animation
-            Debug.Log("Distance to player: " + distanceToPlayer);
-            Debug.Log(agent.stoppingDistance);
             if (distanceToPlayer <= attackRange && Time.time >= nextAttackTime)
             {
                 Attack();
             }
             else
             {
-                animator.SetBool("IsWalking", true); // Start walking animation
+                animator.SetBool("IsWalking", true);
             }
         }
     }
 
-    void Attack()
+    public void Attack()
     {
-        // Play attack animation
-        animator.SetBool("IsWalking", false); // Stop walking animation
-        animator.SetTrigger("Attack"); // Trigger attack animation
-        Debug.Log("Attack");
-
-        // Deal damage to player
-        //if (player != null)
-        //{
-        //    PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-        //    if (playerHealth != null)
-        //    {
-        //        playerHealth.TakeDamage(attackDamage);
-        //    }
-        //}
-
+        animator.SetBool("IsWalking", false);
+        animator.SetTrigger("Attack");
         nextAttackTime = Time.time + attackCooldown;
+    }
+
+    // Add a public method to check if the zombie is currently attacking
+    public bool IsAttacking()
+    {
+        // Check if the zombie is in the attacking animation state
+        return animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
     }
 }
