@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4de219a095b9c18438e99f434ad1c179, type: 2}
+    - target: {fileID: 9500000, guid: f88c8301226fd194cbbc64e25b20d567, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1e866cec73d72134aa7e108cfcc3521d, type: 2}
     - target: {fileID: 13700098, guid: f88c8301226fd194cbbc64e25b20d567, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -149,7 +153,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
