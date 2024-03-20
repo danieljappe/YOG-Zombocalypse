@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Plane
   - hit
+  - ZombieAttack
   layers:
   - Default
   - TransparentFX
