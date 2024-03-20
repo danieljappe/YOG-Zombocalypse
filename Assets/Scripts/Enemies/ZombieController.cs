@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class ZombieController : MonoBehaviour
 {
+    [SerializeField] private float ZombieHealthPoints = 100f;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private float attackDamage = 10f;
@@ -32,6 +33,10 @@ public class ZombieController : MonoBehaviour
     {
         if (player != null)
         {
+            if(ZombieHealthPoints<=0){
+                Die();
+            }
+
             agent.SetDestination(player.position);
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
             if (distanceToPlayer <= attackRange && Time.time >= nextAttackTime)
@@ -58,4 +63,39 @@ public class ZombieController : MonoBehaviour
         // Check if the zombie is in the attacking animation state
         return animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
     }
+
+    // Bullet detector
+    void OnTriggerEnter(Collider other){
+
+        BulletController bullet = other.GetComponentInParent<BulletController>();
+
+        if (bullet != null && other.CompareTag("Bullet")){
+            {
+                Debug.Log("Zombie hit");
+                //TODO : Create bulletDamage attribute
+                TakeDamage(25f);
+                Destroy(other.gameObject);
+            }
+        }
+    }
+
+    void TakeDamage(float bulletDamage)
+    {
+        ZombieHealthPoints -= bulletDamage;
+        Debug.Log("Zombie took " + bulletDamage + "damage. Current health: " + ZombieHealthPoints);
+        
+        if (ZombieHealthPoints <= 0){
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Zombie died");
+        //Remove gameobject
+        Destroy(gameObject);
+
+    }
+
+    
 }
