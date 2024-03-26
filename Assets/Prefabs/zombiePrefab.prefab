@@ -588,6 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ZombieHealthPoints: 100
+  pointsGiven: 10
   zombieHealthBar: {fileID: 7823445056755330654}
   agent: {fileID: 0}
   attackRange: 3

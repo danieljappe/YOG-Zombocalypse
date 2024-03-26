@@ -5,6 +5,7 @@ public class ZombieController : MonoBehaviour
 {
     [SerializeField] private float ZombieHealthPoints = 100f;
 
+    [SerializeField] private int pointsGiven;
     public ZombieHealthBar zombieHealthBar;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private float attackRange = 2f;
@@ -98,6 +99,7 @@ public class ZombieController : MonoBehaviour
     void Die()
     {
         Debug.Log("Zombie died");
+        ScoreManager.scoreCount += pointsGiven;
         //Remove gameobject
         Destroy(gameObject);
 
