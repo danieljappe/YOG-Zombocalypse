@@ -9,7 +9,7 @@ public class GunController : MonoBehaviour
     [SerializeField] public float bulletSpeed;
     [SerializeField] public float timeBetweenShots;
     [SerializeField] private float shotCounter;
-    [SerializeField] public float maxBulletLifetime; // New variable to determine maximum bullet lifespan
+    [SerializeField] public float maxBulletLifetime; //Amount of time the bullet exists
     public Transform firePoint;
 
     // Update is called once per frame

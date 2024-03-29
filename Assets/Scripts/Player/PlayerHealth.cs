@@ -5,17 +5,21 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f;
     private float currentHealth;
 
+    public HealthBar healthBar;
+
     public GameObject gameOverCanvas; 
 
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
         //gameOverCanvas.SetActive(false);
     }
 
     public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
+        healthBar.SetHealth(currentHealth);
         Debug.Log("Player took " + damageAmount + " damage. Current health: " + currentHealth);
 
         if (currentHealth <= 0)
