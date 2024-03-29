@@ -4,6 +4,9 @@ using UnityEngine.AI;
 public class ZombieController : MonoBehaviour
 {
     [SerializeField] private float ZombieHealthPoints = 100f;
+
+    [SerializeField] private int pointsGiven;
+    public ZombieHealthBar zombieHealthBar;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private float attackDamage = 10f;
@@ -20,9 +23,11 @@ public class ZombieController : MonoBehaviour
 
     void Start()
     {
+        
         player = GameObject.FindGameObjectWithTag("Player").transform;
         if (agent == null)
         {
+            zombieHealthBar.SetMaxHealth(ZombieHealthPoints);
             agent = GetComponent<NavMeshAgent>();
         }
 
@@ -74,6 +79,7 @@ public class ZombieController : MonoBehaviour
                 Debug.Log("Zombie hit");
                 //TODO : Create bulletDamage attribute
                 TakeDamage(25f);
+                
                 Destroy(other.gameObject);
             }
         }
@@ -82,6 +88,7 @@ public class ZombieController : MonoBehaviour
     void TakeDamage(float bulletDamage)
     {
         ZombieHealthPoints -= bulletDamage;
+        zombieHealthBar.SetHealth(ZombieHealthPoints);
         Debug.Log("Zombie took " + bulletDamage + "damage. Current health: " + ZombieHealthPoints);
         
         if (ZombieHealthPoints <= 0){
@@ -92,6 +99,7 @@ public class ZombieController : MonoBehaviour
     void Die()
     {
         Debug.Log("Zombie died");
+        ScoreManager.scoreCount += pointsGiven;
         //Remove gameobject
         Destroy(gameObject);
 
