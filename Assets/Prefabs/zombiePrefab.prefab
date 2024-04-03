@@ -491,6 +491,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100166, guid: f88c8301226fd194cbbc64e25b20d567,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5955643634153471412}
+    - targetCorrespondingSourceObject: {fileID: 100166, guid: f88c8301226fd194cbbc64e25b20d567,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 2394523747369344656}
     - targetCorrespondingSourceObject: {fileID: 100166, guid: f88c8301226fd194cbbc64e25b20d567,
         type: 3}
@@ -548,6 +552,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7016291111311956077}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5955643634153471412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016291111311990571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8b06bee37da4144845aa37cda8a0d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 6454432227127321854, guid: ce613f4b94e2d744682b00871362f42f,
+    type: 3}
+  lootList:
+  - {fileID: 11400000, guid: 9f4b8e417c9be4b4aa735de00da05db0, type: 2}
+  - {fileID: 11400000, guid: 65a9015994d77e94683921aec9f616d8, type: 2}
+  - {fileID: 11400000, guid: b0d945de48ad35e43b42823998ce3e6d, type: 2}
 --- !u!54 &2394523747369344656
 Rigidbody:
   m_ObjectHideFlags: 0

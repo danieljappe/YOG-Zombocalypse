@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -42,7 +43,13 @@ public class ZombieController : MonoBehaviour
                 Die();
             }
 
-            agent.SetDestination(player.position);
+            // Check if the NavMeshAgent is active before setting destination to avoid getting console errors
+            if (agent.isActiveAndEnabled && !hasDied)
+            {
+                // Your existing code to set destination goes here
+                agent.SetDestination(player.position);
+            }
+
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
             if (distanceToPlayer <= attackRange && Time.time >= nextAttackTime)
             {
@@ -96,14 +103,32 @@ public class ZombieController : MonoBehaviour
         }
     }
 
+    
+    private bool hasDied = false; // to avoid multiple Instantiates to happen
     void Die()
     {
-        Debug.Log("Zombie died");
-        ScoreManager.scoreCount += pointsGiven;
-        //Remove gameobject
-        Destroy(gameObject);
+        if (!hasDied)
+        {
+            GetComponent<LootBag>().InstantiateLoot(transform.position);
+            animator.SetTrigger("Death");
+            //Disable pathfinding
+            agent.enabled = false;
+            //Disable ZombieHealthBar
+            zombieHealthBar.DisableHealthBar();
+            Debug.Log("Zombie died");
+            ScoreManager.scoreCount += pointsGiven;
+    
+            hasDied = true;
 
+            StartCoroutine(DestroyAfterAnimation());
+        }
     }
 
-    
+    IEnumerator DestroyAfterAnimation()
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); // Wait for the length of the "Die" animation
+
+        Destroy(gameObject);
+    }
 }
+

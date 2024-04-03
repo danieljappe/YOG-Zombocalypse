@@ -23,4 +23,11 @@ public class ZombieHealthBar : MonoBehaviour
         fill.color = gradient.Evaluate(slider.normalizedValue);
 
     }
+
+    public void DisableHealthBar()
+    {
+        // Disable the slider and fill components
+        slider.gameObject.SetActive(false);
+        fill.gameObject.SetActive(false);
+    }
 }
