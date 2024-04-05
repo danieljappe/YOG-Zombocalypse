@@ -9,6 +9,7 @@ TagManager:
   - ZombieAttack
   - Bullet
   - Loot
+  - Zombie
   layers:
   - Default
   - TransparentFX
