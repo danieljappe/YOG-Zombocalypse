@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8293edd101ff74388a7e4c687088c4, type: 3}
   m_Name: Coin1
   m_EditorClassIdentifier: 
-  lootGameObject: {fileID: 919132149155446097, guid: 7462bc6552c6eb74a817e7890016daa2,
+  lootGameObject: {fileID: 8123694745120585493, guid: 0b9fe23dd7224164c9382bd04a009fcb,
     type: 3}
   lootName: Coin1
   dropChance: 100
