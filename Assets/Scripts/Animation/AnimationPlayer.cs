@@ -16,7 +16,8 @@ public class AnimationPlayer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Vertical") || Input.GetButtonDown("Horizontal"))
+        if (Input.GetButtonDown("Vertical") || Input.GetButtonDown("Horizontal") ||
+            Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             playerAnimator.SetTrigger("Trun");
         }
