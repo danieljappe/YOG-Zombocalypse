@@ -1,16 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
     public bool isFiring;
     public BulletController bullet;
-    [SerializeField] public float bulletSpeed;
-    [SerializeField] public float timeBetweenShots;
-    [SerializeField] private float shotCounter;
-    [SerializeField] public float maxBulletLifetime; //Amount of time the bullet exists
+    public float bulletSpeed;
+    public float timeBetweenShots;
+    public float maxBulletLifetime;
     public Transform firePoint;
+
+    private float shotCounter;
 
     // Update is called once per frame
     void Update()
@@ -32,9 +32,29 @@ public class GunController : MonoBehaviour
 
     IEnumerator FireBullet()
     {
-        BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
+        Debug.Log("Firing bullet: " + bullet.name); // Add this line to check firing bullet
+        
+        // Calculate the direction towards the cursor point
+        Vector3 mousePos = Input.mousePosition;
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        RaycastHit hit;
+        Vector3 direction = Vector3.zero;
+        if (Physics.Raycast(ray, out hit))
+        {
+            direction = (hit.point - firePoint.position).normalized;
+        }
+        else
+        {
+            direction = (ray.GetPoint(1000f) - firePoint.position).normalized;
+        }
+
+        BulletController newBullet = Instantiate(bullet, firePoint.position, Quaternion.LookRotation(direction));
         newBullet.speed = bulletSpeed;
+
         yield return new WaitForSeconds(maxBulletLifetime);
-        Destroy(newBullet.gameObject);
+        if (newBullet)
+        {
+            Destroy(newBullet.gameObject);
+        }
     }
 }
