@@ -6,7 +6,9 @@ public class PlayerController : MonoBehaviour
 
     private WeaponManager weaponManager; // Reference to the WeaponManager script
     private GunController currentGun; // Reference to the current weapon's GunController
-
+    private bool isFiring; // Flag to track if the player is currently firing
+    private float fireTimer; // Timer to control the firing rate
+    private bool canFire = true; // Flag to control if the player can fire
 
     void Start()
     {
@@ -27,21 +29,42 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+        // Check if the player can fire
+        if (!canFire)
+            return;
+
         Vector3 mousePos = Input.mousePosition;
         currentGun = weaponManager.weapons[weaponManager.currentWeaponIndex].GetComponent<GunController>();
-        // Check if there is a current gun and if it's firing
+        // Check if there is a current gun
         if (currentGun != null)
         {
-            if (Input.GetButtonDown("Fire1"))
+            // Check if the fire button is being held down
+            if (Input.GetButton("Fire1"))
             {
-                currentGun.isFiring = true;
-                Debug.Log("Firing: " + currentGun.name); // Add this line to check firing
+                // Start firing
+                isFiring = true;
+            }
+            else
+            {
+                // Stop firing
+                isFiring = false;
             }
 
-            if (Input.GetButtonUp("Fire1"))
+            // If the player is firing and the fire timer has elapsed, fire the gun
+            if (isFiring && fireTimer <= 0)
+            {
+                currentGun.isFiring = true;
+                fireTimer = currentGun.timeBetweenShots; // Reset the fire timer
+            }
+            else
             {
                 currentGun.isFiring = false;
-                Debug.Log("Not Firing: " + currentGun.name); // Add this line to check not firing
+            }
+
+            // Update the fire timer
+            if (fireTimer > 0)
+            {
+                fireTimer -= Time.deltaTime;
             }
         }
         else
@@ -50,16 +73,19 @@ public class PlayerController : MonoBehaviour
         }
 
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
-        
         RaycastHit hit;
 
-        
         if (Physics.Raycast(ray, out hit))
         {
-            
             Vector3 lookDir = hit.point - transform.position;
             lookDir.y = 0f; 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDir), rotationSpeed * Time.deltaTime);
         }
+    }
+
+    // Method to enable or disable firing
+    public void SetCanFire(bool value)
+    {
+        canFire = value;
     }
 }
