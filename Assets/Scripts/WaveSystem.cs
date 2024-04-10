@@ -17,19 +17,28 @@ public class WaveSystem : MonoBehaviour
 {
     public Wave[] waves;
     public Transform[] spawnPoints;
-    public Text waveText; 
-    public Text remainingZombiesText; 
+    public Text waveText;
+    public Text remainingZombiesText;
+    public Text alarmText;
+    public Text waveCompleted;
+
+    public KeyCode startWaveKey = KeyCode.E; 
+    public Transform objectToInteractWith; 
 
     private Wave currentWave;
     private int currentWaveNumber;
     private float nextSpawnTime;
     private bool canSpawn = true;
-    private int totalZombiesAlive = 0; 
+    private int totalZombiesAlive = 0;
+    private bool canStartNextWave = false;
 
     private void Start()
     {
         UpdateWaveText();
         UpdateRemainingZombiesText();
+        alarmText.enabled = false;
+        waveCompleted.enabled = false;
+        
     }
 
     private void Update()
@@ -41,27 +50,35 @@ public class WaveSystem : MonoBehaviour
         int activeZombiesCount = CountActiveZombies();
         totalZombiesAlive = activeZombiesCount;
 
-       
+        if (canStartNextWave && Input.GetKeyDown(startWaveKey))
+        {
+            StartNextWave();
+        }
+
         if (totalZombiesAlive == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length)
         {
-            currentWaveNumber++;
-            canSpawn = true;
-            UpdateWaveText();
+            canStartNextWave = true;
+            alarmText.enabled = true;
+            waveCompleted.enabled = true;
+
+        }else{
+            alarmText.enabled = false;
+            waveCompleted.enabled = false;
         }
     }
 
     void SpawnWave()
     {
-        if(canSpawn && nextSpawnTime < Time.time)
+        if (canSpawn && nextSpawnTime < Time.time)
         {
             GameObject randomEnemy = currentWave.typeEnemies[Random.Range(0, currentWave.typeEnemies.Length)];
             Transform randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(randomEnemy, randomPoint.position, Quaternion.identity);
             currentWave.NumbEnemies--;
             nextSpawnTime = Time.time + currentWave.spawnInterval;
-            UpdateRemainingZombiesText(); 
+            UpdateRemainingZombiesText();
 
-            if(currentWave.NumbEnemies == 0)
+            if (currentWave.NumbEnemies == 0)
             {
                 canSpawn = false;
             }
@@ -70,7 +87,7 @@ public class WaveSystem : MonoBehaviour
 
     void UpdateWaveText()
     {
-        if(waveText != null)
+        if (waveText != null)
         {
             waveText.text = "Wave: " + (currentWaveNumber + 1).ToString();
         }
@@ -78,7 +95,12 @@ public class WaveSystem : MonoBehaviour
 
     void UpdateRemainingZombiesText()
     {
-        if(remainingZombiesText != null)
+        if(totalZombiesAlive == 0){
+
+            remainingZombiesText.text = "Wave Clear";
+        }
+
+        else
         {
             remainingZombiesText.text = "Remaining Zombies: " + totalZombiesAlive.ToString();
         }
@@ -95,5 +117,16 @@ public class WaveSystem : MonoBehaviour
             }
         }
         return count;
+    }
+
+    void StartNextWave()
+    {
+        currentWaveNumber++;
+        canSpawn = true;
+        UpdateWaveText();
+
+        canStartNextWave = false;
+        alarmText.enabled = false;
+        waveCompleted.enabled = false;
     }
 }
