@@ -29,27 +29,25 @@ public class LootBag : MonoBehaviour
 
     public void InstantiateLoot(Vector3 spawnPosition)
     {
-       Loot droppedItem = GetDroppedItems();
-       
-       if (droppedItem != null)
-       {
-           GameObject lootGameObject = Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);
-           Renderer renderer = droppedItem.lootGameObject.GetComponent<Renderer>();
+    Loot droppedItem = GetDroppedItems();
+    Debug.Log("DroppedItem = " + droppedItem);
     
-           if (renderer != null)
-           {
-               renderer.material = droppedItem.lootGameObject.GetComponent<Renderer>().material;
-    
-               float dropForce = 300f;
-               Vector2 dropDirection = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
-               lootGameObject.GetComponent<Rigidbody>().AddForce(dropDirection * dropForce, ForceMode.Impulse);
-           }
-           else
-           {
-               Debug.Log("Renderer component not found on lootGameObject.");
-           }
-       }
+    if (droppedItem != null && droppedItem.lootGameObject != null)
+    {
+        GameObject lootGameObject = Instantiate(droppedItem.lootGameObject, spawnPosition, Quaternion.identity);
+
+        Rigidbody rb = lootGameObject.GetComponent<Rigidbody>();
+
+        float dropForce = 1f;
+        Vector3 dropDirection = new Vector3(Random.Range(-1f,1f), Random.Range(-1f,1f), Random.Range(-1f,1f));
+        rb.AddForce(dropDirection * dropForce, ForceMode.Impulse);
     }
+    else
+    {
+        Debug.Log("No loot dropped or lootGameObject is not assigned.");
+    }
+    }
+
 
 
 }

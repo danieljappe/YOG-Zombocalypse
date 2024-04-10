@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Loot
   - Zombie
+  - Shotgun
   layers:
   - Default
   - TransparentFX

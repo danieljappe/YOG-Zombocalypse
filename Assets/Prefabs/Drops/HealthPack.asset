@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b8293edd101ff74388a7e4c687088c4, type: 3}
-  m_Name: Coin1
+  m_Name: HealthPack
   m_EditorClassIdentifier: 
-  lootGameObject: {fileID: 8123694745120585493, guid: 0b9fe23dd7224164c9382bd04a009fcb,
+  lootGameObject: {fileID: 3182168808910397722, guid: a6baafe1cba07da42836359aaeb8a8b5,
     type: 3}
-  lootName: Coin1
+  lootName: HealthPack
   dropChance: 100

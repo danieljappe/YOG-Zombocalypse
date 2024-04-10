@@ -109,7 +109,10 @@ public class ZombieController : MonoBehaviour
     {
         if (!hasDied)
         {
-            GetComponent<LootBag>().InstantiateLoot(transform.position);
+            // Add height to spawnPosition to avoid item going through map
+            Vector3 spawnPosition = transform.position + Vector3.up * 1f;
+
+            GetComponent<LootBag>().InstantiateLoot(spawnPosition);
             animator.SetTrigger("Death");
             //Disable pathfinding
             agent.enabled = false;
@@ -126,7 +129,7 @@ public class ZombieController : MonoBehaviour
 
     IEnumerator DestroyAfterAnimation()
     {
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); // Wait for the length of the "Die" animation
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 1); // Wait for the length of the "Die" animation
 
         Destroy(gameObject);
     }

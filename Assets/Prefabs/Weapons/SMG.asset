@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b8293edd101ff74388a7e4c687088c4, type: 3}
-  m_Name: Coin1
+  m_Script: {fileID: 11500000, guid: a90f258195360aa4f90b51b769bb931a, type: 3}
+  m_Name: SMG
   m_EditorClassIdentifier: 
-  lootGameObject: {fileID: 8123694745120585493, guid: 0b9fe23dd7224164c9382bd04a009fcb,
+  bulletPrefab: {fileID: 656798266340485929, guid: 8ea49f63fda5d464b80c25f274dadc7f,
     type: 3}
-  lootName: Coin1
-  dropChance: 100
+  bulletSpeed: 10
+  timeBetweenShots: 0.2
+  maxBulletLifetime: 8
