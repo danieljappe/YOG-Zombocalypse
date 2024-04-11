@@ -87,7 +87,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ffb7dde30f4ada9499d4e1cf44134865,
         type: 3}
       propertyPath: m_TagString
-      value: Loot
+      value: HealthPack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

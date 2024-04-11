@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Make sure to add this line if not already added
 
 public class PlayerManager : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject gameOverCanvas; 
 
-    public List<GameObject> inventory;
+    public List<InventoryItem> inventory;
+
+    public Text coinText;
+    public Text healthPackText;
 
     void Start()
     {
@@ -32,7 +36,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-        if(other.CompareTag("Loot")){
+        if(other.CompareTag("Loot") || other.CompareTag("HealthPack")){
             PickUpLoot(other.gameObject);
         }
     }
@@ -61,13 +65,53 @@ public class PlayerManager : MonoBehaviour
         gameOverCanvas.SetActive(true);
     }
 
-    void PickUpLoot(GameObject loot){
-        inventory.Add(loot); // Add the loot GameObject to the player's inventory
-        loot.transform.parent = null; // Detach the loot from its parent
-        loot.SetActive(false); // Deactivate the loot GameObject
+    void PickUpLoot(GameObject loot)
+    {
+        InventoryItem foundItem = inventory.Find(item => item.item == loot);
+        if (foundItem != null)
+        {
+            foundItem.quantity++;
+        }
+        else
+        {
+            InventoryItem newItem = new InventoryItem();
+            newItem.item = loot;
+            newItem.quantity = 1;
+            inventory.Add(newItem);
+        }
+
+        loot.transform.parent = null;
+        loot.SetActive(false);
         Debug.Log("Picked up loot: " + loot.name);
+
+        // Update the inventory UI
+        UpdateInventoryUI();
     }
 
+    void UpdateInventoryUI()
+{
+    // Initialize counters for coins and health packs
+    int coinCount = 0;
+    int healthPackCount = 0;
 
-    
+    // Count the number of coins and health packs in the inventory
+    foreach (InventoryItem item in inventory)
+    {
+        if (item.item.CompareTag("Loot"))
+        {
+            coinCount += item.quantity;
+        }
+        else if (item.item.CompareTag("HealthPack"))
+        {
+            healthPackCount += item.quantity;
+        }
+    }
+
+    // Update the coin UI text with the coin count
+    coinText.text = "x " + coinCount;
+
+    // Update the health pack UI text with the health pack count
+    healthPackText.text = "Health Packs: " + healthPackCount;
+}
+
 }

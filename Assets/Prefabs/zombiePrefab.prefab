@@ -442,15 +442,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400166, guid: f88c8301226fd194cbbc64e25b20d567, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.250637
+      value: 24.334286
       objectReference: {fileID: 0}
     - target: {fileID: 400166, guid: f88c8301226fd194cbbc64e25b20d567, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.100001
+      value: -3.0999985
       objectReference: {fileID: 0}
     - target: {fileID: 400166, guid: f88c8301226fd194cbbc64e25b20d567, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.77954
+      value: -27.00732
       objectReference: {fileID: 0}
     - target: {fileID: 400166, guid: f88c8301226fd194cbbc64e25b20d567, type: 3}
       propertyPath: m_LocalRotation.w
@@ -558,8 +558,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.07437658
-  m_Height: 0.18500921
+  m_Radius: 0.12
+  m_Height: 0.2
   m_Direction: 1
   m_Center: {x: -0.07997893, y: 0.009749537, z: -0.0020960937}
 --- !u!1 &7016291111311990571 stripped
@@ -584,7 +584,6 @@ MonoBehaviour:
     type: 3}
   lootList:
   - {fileID: 11400000, guid: 9f4b8e417c9be4b4aa735de00da05db0, type: 2}
-  - {fileID: 11400000, guid: 65a9015994d77e94683921aec9f616d8, type: 2}
 --- !u!54 &2394523747369344656
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -696,9 +695,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3832037
-  m_Height: 1.9060088
+  m_Height: 2.581667
   m_Direction: 1
-  m_Center: {x: -0.0364045, y: 0.65708715, z: 0.006795903}
+  m_Center: {x: -0.0364045, y: 0.99492127, z: 0.006795903}
 --- !u!64 &8926064532646164999
 MeshCollider:
   m_ObjectHideFlags: 0
