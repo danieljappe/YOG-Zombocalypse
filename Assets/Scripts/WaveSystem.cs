@@ -122,7 +122,7 @@ public class WaveSystem : MonoBehaviour
 
         else
         {
-            remainingZombiesText.text = "Remaining Zombies: " + totalZombiesAlive.ToString();
+            remainingZombiesText.text = "Remaining Zombies : " + totalZombiesAlive.ToString();
         }
     }
 
