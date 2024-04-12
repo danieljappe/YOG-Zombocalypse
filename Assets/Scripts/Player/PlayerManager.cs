@@ -111,7 +111,7 @@ public class PlayerManager : MonoBehaviour
     coinText.text = "x " + coinCount;
 
     // Update the health pack UI text with the health pack count
-    healthPackText.text = "Health Packs: " + healthPackCount;
+    healthPackText.text = "x " + healthPackCount;
 }
 
 }
