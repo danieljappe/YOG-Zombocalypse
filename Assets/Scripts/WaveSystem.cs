@@ -21,6 +21,8 @@ public class WaveSystem : MonoBehaviour
     public Text remainingZombiesText;
     public Text alarmText;
     public Text waveCompleted;
+    public Text waveBegin;
+    public Text cannotStartWaveText;
 
     public KeyCode startWaveKey = KeyCode.E; 
     public Transform objectToInteractWith; 
@@ -38,6 +40,8 @@ public class WaveSystem : MonoBehaviour
         UpdateRemainingZombiesText();
         alarmText.enabled = false;
         waveCompleted.enabled = false;
+        waveBegin.enabled = false;
+        cannotStartWaveText.enabled = false;
         
     }
 
@@ -52,7 +56,21 @@ public class WaveSystem : MonoBehaviour
 
         if (canStartNextWave && Input.GetKeyDown(startWaveKey))
         {
-            StartNextWave();
+            if (totalZombiesAlive > 0)
+            {
+                cannotStartWaveText.enabled = true; 
+            }
+            else
+            {
+                cannotStartWaveText.enabled = false; 
+                StartNextWave();
+            }
+        }
+
+        if (Input.GetKeyDown(startWaveKey) && totalZombiesAlive > 0)
+        {
+            cannotStartWaveText.enabled = true;
+
         }
 
         if (totalZombiesAlive == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length)
@@ -60,6 +78,8 @@ public class WaveSystem : MonoBehaviour
             canStartNextWave = true;
             alarmText.enabled = true;
             waveCompleted.enabled = true;
+            cannotStartWaveText.enabled = false;
+
 
         }else{
             alarmText.enabled = false;
