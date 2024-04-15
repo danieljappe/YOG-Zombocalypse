@@ -526,6 +526,125 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1702334058}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &64953522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 64953527}
+  - component: {fileID: 64953526}
+  - component: {fileID: 64953525}
+  - component: {fileID: 64953523}
+  - component: {fileID: 64953524}
+  m_Layer: 5
+  m_Name: waveText (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &64953523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64953522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+    m_FontSize: 36
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 100
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Finish wave before activating alarm
+
+'
+--- !u!114 &64953524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64953522}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40271b3d7d242ba408e5f1c90abbb142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves: []
+  spawnPoints: []
+  waveText: {fileID: 0}
+  remainingZombiesText: {fileID: 0}
+  alarmText: {fileID: 0}
+  waveCompleted: {fileID: 0}
+  waveBegin: {fileID: 0}
+  cannotStartWaveText: {fileID: 0}
+  winText: {fileID: 0}
+  startWaveKey: 101
+  objectToInteractWith: {fileID: 0}
+--- !u!114 &64953525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64953522}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e2c493efed5b448a4ad8bf20ad9603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 64953523}
+--- !u!222 &64953526
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64953522}
+  m_CullTransparentMesh: 1
+--- !u!224 &64953527
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64953522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5843376, y: 1.3333, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 933813193}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1000, y: -1070}
+  m_SizeDelta: {x: 304.6497, y: 51.4142}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &72269624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1259,122 +1378,6 @@ MonoBehaviour:
   timeBetweenShots: 1
   maxBulletLifetime: 5
   firePoint: {fileID: 642541056}
---- !u!1 &159457842
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 159457843}
-  - component: {fileID: 159457847}
-  - component: {fileID: 159457846}
-  - component: {fileID: 159457845}
-  - component: {fileID: 159457844}
-  m_Layer: 5
-  m_Name: waveBegin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &159457843
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159457842}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9919, y: 1.551, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 933813193}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1147, y: -414}
-  m_SizeDelta: {x: 304.6497, y: 51.4142}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &159457844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159457842}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40271b3d7d242ba408e5f1c90abbb142, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waves: []
-  spawnPoints: []
-  waveText: {fileID: 0}
-  remainingZombiesText: {fileID: 0}
-  alarmText: {fileID: 0}
-  waveCompleted: {fileID: 0}
-  waveBegin: {fileID: 0}
-  cannotStartWaveText: {fileID: 0}
-  startWaveKey: 101
-  objectToInteractWith: {fileID: 0}
---- !u!114 &159457845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159457842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
-    m_FontSize: 36
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 58
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: waveBegin
---- !u!114 &159457846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159457842}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e2c493efed5b448a4ad8bf20ad9603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 159457845}
---- !u!222 &159457847
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159457842}
-  m_CullTransparentMesh: 1
 --- !u!1 &160406509 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 92a96ed18ec532a4c9ef70d977863ec8,
@@ -1576,6 +1579,7 @@ MonoBehaviour:
   waveCompleted: {fileID: 0}
   waveBegin: {fileID: 0}
   cannotStartWaveText: {fileID: 0}
+  winText: {fileID: 0}
   startWaveKey: 101
   objectToInteractWith: {fileID: 0}
 --- !u!114 &190007141
@@ -3227,6 +3231,7 @@ MonoBehaviour:
   waveCompleted: {fileID: 0}
   waveBegin: {fileID: 0}
   cannotStartWaveText: {fileID: 0}
+  winText: {fileID: 0}
   startWaveKey: 101
   objectToInteractWith: {fileID: 0}
 --- !u!114 &434984413
@@ -3654,6 +3659,7 @@ MonoBehaviour:
   waveCompleted: {fileID: 0}
   waveBegin: {fileID: 0}
   cannotStartWaveText: {fileID: 0}
+  winText: {fileID: 0}
   startWaveKey: 101
   objectToInteractWith: {fileID: 0}
 --- !u!114 &526978281
@@ -4371,6 +4377,125 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7077401566430737007, guid: 92a96ed18ec532a4c9ef70d977863ec8, type: 3}
+--- !u!1 &571393558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 571393563}
+  - component: {fileID: 571393562}
+  - component: {fileID: 571393561}
+  - component: {fileID: 571393559}
+  - component: {fileID: 571393560}
+  m_Layer: 5
+  m_Name: winText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &571393559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571393558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 1, b: 0.04051709, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+    m_FontSize: 62
+    m_FontStyle: 1
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 150
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 0.5
+  m_Text: 'YOU WON!
+
+    Every zombies are dead'
+--- !u!114 &571393560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571393558}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40271b3d7d242ba408e5f1c90abbb142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves: []
+  spawnPoints: []
+  waveText: {fileID: 0}
+  remainingZombiesText: {fileID: 0}
+  alarmText: {fileID: 0}
+  waveCompleted: {fileID: 0}
+  waveBegin: {fileID: 0}
+  cannotStartWaveText: {fileID: 0}
+  winText: {fileID: 0}
+  startWaveKey: 101
+  objectToInteractWith: {fileID: 0}
+--- !u!114 &571393561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571393558}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e2c493efed5b448a4ad8bf20ad9603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 571393559}
+--- !u!222 &571393562
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571393558}
+  m_CullTransparentMesh: 1
+--- !u!224 &571393563
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571393558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.9418662, y: 4.703797, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 933813193}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1009, y: -533}
+  m_SizeDelta: {x: 304.6497, y: 51.4142}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &576939606 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 92a96ed18ec532a4c9ef70d977863ec8,
@@ -5195,6 +5320,7 @@ MonoBehaviour:
   waveCompleted: {fileID: 0}
   waveBegin: {fileID: 0}
   cannotStartWaveText: {fileID: 0}
+  winText: {fileID: 0}
   startWaveKey: 101
   objectToInteractWith: {fileID: 0}
 --- !u!114 &673195914
@@ -5997,124 +6123,6 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 1021238311}
   m_SourcePrefab: {fileID: 100100000, guid: 2ff93eed9bd63c54e83de030a2ed992e, type: 3}
---- !u!1 &754772921
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 754772922}
-  - component: {fileID: 754772926}
-  - component: {fileID: 754772925}
-  - component: {fileID: 754772924}
-  - component: {fileID: 754772923}
-  m_Layer: 5
-  m_Name: AlarmNotActivable
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &754772922
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754772921}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.2964904, y: 2.272384, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 933813193}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1031, y: -1085}
-  m_SizeDelta: {x: 304.6497, y: 51.4142}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &754772923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754772921}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40271b3d7d242ba408e5f1c90abbb142, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waves: []
-  spawnPoints: []
-  waveText: {fileID: 0}
-  remainingZombiesText: {fileID: 0}
-  alarmText: {fileID: 0}
-  waveCompleted: {fileID: 0}
-  waveBegin: {fileID: 0}
-  cannotStartWaveText: {fileID: 0}
-  startWaveKey: 101
-  objectToInteractWith: {fileID: 0}
---- !u!114 &754772924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754772921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
-    m_FontSize: 48
-    m_FontStyle: 1
-    m_BestFit: 1
-    m_MinSize: 0
-    m_MaxSize: 300
-    m_Alignment: 1
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Finish wave before activating alarm
-
-'
---- !u!114 &754772925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754772921}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e2c493efed5b448a4ad8bf20ad9603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 754772924}
---- !u!222 &754772926
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754772921}
-  m_CullTransparentMesh: 1
 --- !u!1001 &765401272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7489,25 +7497,25 @@ MonoBehaviour:
     - {fileID: 7016291111311990571, guid: b8e384687d512b0489a88019485fb49e, type: 3}
     spawnInterval: 1
   - waveName: Wave 2
-    NumbEnemies: 20
+    NumbEnemies: 10
     typeEnemies:
     - {fileID: 7016291111311990571, guid: b8e384687d512b0489a88019485fb49e, type: 3}
     - {fileID: 2611045983491496454, guid: 49506c9129442894ca936c57e7208356, type: 3}
     spawnInterval: 2
   - waveName: Wave 3
-    NumbEnemies: 15
+    NumbEnemies: 20
     typeEnemies:
     - {fileID: 7016291111311990571, guid: b8e384687d512b0489a88019485fb49e, type: 3}
     - {fileID: 4289237964163580447, guid: 61bb0141c4fc5e447919a4d96c0fa987, type: 3}
     spawnInterval: 2
   - waveName: Wave 4
-    NumbEnemies: 40
+    NumbEnemies: 25
     typeEnemies:
     - {fileID: 7016291111311990571, guid: b8e384687d512b0489a88019485fb49e, type: 3}
     - {fileID: 2611045983491496454, guid: 49506c9129442894ca936c57e7208356, type: 3}
     spawnInterval: 3
   - waveName: Wave 5
-    NumbEnemies: 35
+    NumbEnemies: 30
     typeEnemies:
     - {fileID: 7016291111311990571, guid: b8e384687d512b0489a88019485fb49e, type: 3}
     - {fileID: 4289237964163580447, guid: 61bb0141c4fc5e447919a4d96c0fa987, type: 3}
@@ -7522,8 +7530,9 @@ MonoBehaviour:
   remainingZombiesText: {fileID: 190007139}
   alarmText: {fileID: 434984411}
   waveCompleted: {fileID: 673195912}
-  waveBegin: {fileID: 159457845}
-  cannotStartWaveText: {fileID: 754772924}
+  waveBegin: {fileID: 979543193}
+  cannotStartWaveText: {fileID: 64953523}
+  winText: {fileID: 571393559}
   startWaveKey: 101
   objectToInteractWith: {fileID: 1077804679}
 --- !u!4 &912507687
@@ -7822,11 +7831,12 @@ RectTransform:
   - {fileID: 2031040747}
   - {fileID: 1530832223}
   - {fileID: 526978279}
-  - {fileID: 159457843}
+  - {fileID: 64953527}
+  - {fileID: 979543189}
   - {fileID: 190007143}
   - {fileID: 434984415}
-  - {fileID: 754772922}
   - {fileID: 673195916}
+  - {fileID: 571393563}
   m_Father: {fileID: 264283919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8083,6 +8093,125 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &979543188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 979543189}
+  - component: {fileID: 979543192}
+  - component: {fileID: 979543191}
+  - component: {fileID: 979543193}
+  - component: {fileID: 979543190}
+  m_Layer: 5
+  m_Name: waveBegin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &979543189
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979543188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 933813193}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1072, y: -522}
+  m_SizeDelta: {x: 304.6497, y: 51.4142}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &979543190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979543188}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40271b3d7d242ba408e5f1c90abbb142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves: []
+  spawnPoints: []
+  waveText: {fileID: 0}
+  remainingZombiesText: {fileID: 0}
+  alarmText: {fileID: 0}
+  waveCompleted: {fileID: 0}
+  waveBegin: {fileID: 0}
+  cannotStartWaveText: {fileID: 0}
+  winText: {fileID: 0}
+  startWaveKey: 101
+  objectToInteractWith: {fileID: 0}
+--- !u!114 &979543191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979543188}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e2c493efed5b448a4ad8bf20ad9603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 979543193}
+--- !u!222 &979543192
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979543188}
+  m_CullTransparentMesh: 1
+--- !u!114 &979543193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979543188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+    m_FontSize: 36
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 58
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'waveBegin
+
+'
 --- !u!1001 &994055737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15816,7 +15945,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728447211}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.56062883, y: -0.000000021372065, z: 0.0000000144695935, w: 0.82806724}
+  m_LocalRotation: {x: 0.56062883, y: -0.000000021372069, z: 0.000000014469594, w: 0.82806724}
   m_LocalPosition: {x: 31.18, y: 12.04, z: -34.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19860,7 +19989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103725865}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.56062883, y: -0.000000021372065, z: 0.0000000144695935, w: 0.82806724}
+  m_LocalRotation: {x: 0.56062883, y: -0.000000021372069, z: 0.000000014469594, w: 0.82806724}
   m_LocalPosition: {x: 31.18, y: 12.04, z: -34.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
