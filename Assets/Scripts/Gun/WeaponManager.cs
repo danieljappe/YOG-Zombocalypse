@@ -4,9 +4,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     public List<GameObject> weapons; // List of weapon GameObjects
-
     public int currentWeaponIndex = 0;
-    
     public GunController theGun;
 
     void Start()
@@ -22,7 +20,10 @@ public class WeaponManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
-                SwitchWeapon(i);
+                if (i != currentWeaponIndex) // Check if it's a different weapon
+                {
+                    SwitchWeapon(i);
+                }
                 break;
             }
         }
@@ -61,5 +62,28 @@ public class WeaponManager : MonoBehaviour
 
         // Assign theGun to the current weapon
         theGun.gameObject.SetActive(true);
+    }
+
+    void PurchaseWeapon(int index)
+    {
+        // Implement your purchasing logic here
+        // For example, deduct currency, enable the purchased weapon, etc.
+        Debug.Log("Purchased weapon: " + weapons[index].name);
+        AddWeaponToInventory(weapons[index]); // Add the purchased weapon to the player's inventory
+    }
+
+    // Method to add a weapon to the player's inventory
+    public void AddWeaponToInventory(GameObject weapon)
+    {
+        // Ensure the weapon is not already in the inventory
+        if (!weapons.Contains(weapon))
+        {
+            weapons.Add(weapon); // Add the weapon to the list
+            SwitchWeapon(weapons.Count - 1); // Switch to the newly added weapon
+        }
+        else
+        {
+            Debug.LogWarning("Weapon is already in the inventory!");
+        }
     }
 }

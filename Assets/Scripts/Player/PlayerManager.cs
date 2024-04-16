@@ -67,19 +67,24 @@ public class PlayerManager : MonoBehaviour
 
     void PickUpLoot(GameObject loot)
     {
-        InventoryItem foundItem = inventory.Find(item => item.item == loot);
+        // Check if the loot already exists in the inventory
+        InventoryItem foundItem = inventory.Find(item => item.item.name == loot.name);
+
         if (foundItem != null)
         {
+            // If found, increase the quantity
             foundItem.quantity++;
         }
         else
         {
+            // If not found, create a new inventory item
             InventoryItem newItem = new InventoryItem();
             newItem.item = loot;
             newItem.quantity = 1;
             inventory.Add(newItem);
         }
 
+        // Remove the loot from its parent and deactivate it
         loot.transform.parent = null;
         loot.SetActive(false);
         Debug.Log("Picked up loot: " + loot.name);
@@ -88,9 +93,9 @@ public class PlayerManager : MonoBehaviour
         UpdateInventoryUI();
     }
 
-    void UpdateInventoryUI()
+    public void UpdateInventoryUI()
 {
-    // Initialize counters for coins and health packs
+    // Reset the counts to zero before counting the items in the inventory
     int coinCount = 0;
     int healthPackCount = 0;
 
@@ -114,4 +119,70 @@ public class PlayerManager : MonoBehaviour
     healthPackText.text = "x " + healthPackCount;
 }
 
+public int GetCoinCount()
+    {
+        int coinCount = 0;
+        foreach (InventoryItem item in inventory)
+        {
+            if (item.item.CompareTag("Loot"))
+            {
+                coinCount += item.quantity;
+            }
+        }
+        return coinCount;
+    }
+
+    public int GetHealthPackCount()
+    {
+        int healthPackCount = 0;
+        foreach (InventoryItem item in inventory)
+        {
+            if (item.item.CompareTag("HealthPack"))
+            {
+                healthPackCount += item.quantity;
+            }
+        }
+        return healthPackCount;
+    }
+
+    public void DeductCoins(int amount)
+    {
+        for (int i = inventory.Count - 1; i >= 0; i--)
+        {
+            if (inventory[i].item.CompareTag("Loot"))
+            {
+                if (inventory[i].quantity >= amount)
+                {
+                    inventory[i].quantity -= amount;
+                    break;
+                }
+                else
+                {
+                    amount -= inventory[i].quantity;
+                    inventory.RemoveAt(i);
+                }
+            }
+        }
+    }
+
+    public void DeductHealthPacks(int amount)
+    {
+        for (int i = inventory.Count - 1; i >= 0; i--)
+        {
+            if (inventory[i].item.CompareTag("HealthPack"))
+            {
+                if (inventory[i].quantity >= amount)
+                {
+                    inventory[i].quantity -= amount;
+                    break;
+                }
+                else
+                {
+                    amount -= inventory[i].quantity;
+                    inventory.RemoveAt(i);
+                }
+            }
+        }
+    }
 }
+
