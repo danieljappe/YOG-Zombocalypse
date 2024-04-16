@@ -12,6 +12,7 @@ public class ZombieController : MonoBehaviour
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private float attackDamage = 10f;
     [SerializeField] private float attackCooldown = 1f;
+    [SerializeField] private float slowDuration = 0.05f;
 
     private Transform player;
     private Animator animator;
@@ -84,24 +85,39 @@ public class ZombieController : MonoBehaviour
         if (bullet != null && other.CompareTag("Bullet")){
             {
                 Debug.Log("Zombie hit");
-                //TODO : Create bulletDamage attribute
-                TakeDamage(25f);
-                
+                TakeDamage(bullet.bulletDamage);
                 Destroy(other.gameObject);
             }
         }
     }
 
     void TakeDamage(float bulletDamage)
+{
+    ZombieHealthPoints -= bulletDamage;
+    zombieHealthBar.SetHealth(ZombieHealthPoints);
+    Debug.Log("Zombie took " + bulletDamage + " damage. Current health: " + ZombieHealthPoints);
+
+    if (ZombieHealthPoints <= 0)
     {
-        ZombieHealthPoints -= bulletDamage;
-        zombieHealthBar.SetHealth(ZombieHealthPoints);
-        Debug.Log("Zombie took " + bulletDamage + "damage. Current health: " + ZombieHealthPoints);
-        
-        if (ZombieHealthPoints <= 0){
-            Die();
-        }
+        Die();
     }
+    else
+    {
+        StartCoroutine(SlowDown());
+    }
+}
+
+IEnumerator SlowDown()
+{
+    // Slow down the zombie's speed
+    float originalSpeed = agent.speed;
+    agent.speed *= 0.8f; // Adjust the factor to control the degree of slowing down
+
+    yield return new WaitForSeconds(slowDuration);
+
+    // Restore the original speed
+    agent.speed = originalSpeed;
+}
 
     
     private bool hasDied = false; // to avoid multiple Instantiates to happen
@@ -120,11 +136,17 @@ public class ZombieController : MonoBehaviour
             zombieHealthBar.DisableHealthBar();
             Debug.Log("Zombie died");
             ScoreManager.scoreCount += pointsGiven;
-    
-            hasDied = true;
+            // Disable the capsule collider
+            Collider[] colliders = GetComponents<Collider>();
+            foreach (Collider collider in colliders)
+            {
+                collider.enabled = false;
+            }
+        
+                hasDied = true;
 
-            StartCoroutine(DestroyAfterAnimation());
-        }
+                StartCoroutine(DestroyAfterAnimation());
+            }
     }
 
     IEnumerator DestroyAfterAnimation()

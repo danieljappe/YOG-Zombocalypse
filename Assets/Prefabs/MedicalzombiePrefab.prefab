@@ -711,6 +711,7 @@ MonoBehaviour:
   attackRange: 3
   attackDamage: 34
   attackCooldown: 1
+  slowDuration: 0.05
 --- !u!195 &2232277670472989182
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -442,15 +442,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400166, guid: f88c8301226fd194cbbc64e25b20d567, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.334286
+      value: 41.681377
       objectReference: {fileID: 0}
     - target: {fileID: 400166, guid: f88c8301226fd194cbbc64e25b20d567, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.0999985
+      value: -3.1000004
       objectReference: {fileID: 0}
     - target: {fileID: 400166, guid: f88c8301226fd194cbbc64e25b20d567, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -27.00732
+      value: -26.720377
       objectReference: {fileID: 0}
     - target: {fileID: 400166, guid: f88c8301226fd194cbbc64e25b20d567, type: 3}
       propertyPath: m_LocalRotation.w
@@ -630,6 +630,7 @@ MonoBehaviour:
   attackRange: 3
   attackDamage: 34
   attackCooldown: 1
+  pushBackDistance: 0.01
 --- !u!195 &3886337749079464164
 NavMeshAgent:
   m_ObjectHideFlags: 0

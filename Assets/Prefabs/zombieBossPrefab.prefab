@@ -586,6 +586,7 @@ MonoBehaviour:
   attackRange: 3
   attackDamage: 50
   attackCooldown: 1
+  slowDuration: 0.05
 --- !u!54 &3783089525262649375
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -3,6 +3,8 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public float speed;
+
+    public int bulletDamage;
     
     // Start is called before the first frame update
     void Start()
