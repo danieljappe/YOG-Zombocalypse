@@ -15,4 +15,4 @@ MonoBehaviour:
   lootGameObject: {fileID: 3182168808910397722, guid: a6baafe1cba07da42836359aaeb8a8b5,
     type: 3}
   lootName: HealthPack
-  dropChance: 100
+  dropChance: 50

@@ -665,6 +665,7 @@ MonoBehaviour:
     type: 3}
   lootList:
   - {fileID: 11400000, guid: 3c2883b741866264d9aac8ad3f3d20d3, type: 2}
+  - {fileID: 11400000, guid: 9f4b8e417c9be4b4aa735de00da05db0, type: 2}
 --- !u!54 &6123793343952798269
 Rigidbody:
   m_ObjectHideFlags: 0
