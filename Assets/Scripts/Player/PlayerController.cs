@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour
     private bool isFiring; // Flag to track if the player is currently firing
     private float fireTimer; // Timer to control the firing rate
     private bool canFire = true; // Flag to control if the player can fire
+    AudioManager audioManager;
+
+    private void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
 
     void Start()
     {
@@ -43,6 +49,7 @@ public class PlayerController : MonoBehaviour
             {
                 // Start firing
                 isFiring = true;
+                audioManager.PlaySFX(audioManager.Shooting);
             }
             else
             {

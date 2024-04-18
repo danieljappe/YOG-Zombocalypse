@@ -34,6 +34,12 @@ public class WaveSystem : MonoBehaviour
     private bool canSpawn = true;
     private int totalZombiesAlive = 0;
     private bool canStartNextWave = false;
+    AudioManager audioManager;
+
+    private void Awake(){
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     private void Start()
     {
@@ -66,6 +72,7 @@ public class WaveSystem : MonoBehaviour
             {
                 cannotStartWaveText.enabled = false; 
                 StartNextWave();
+                audioManager.PlaySFX(audioManager.alarm);
             }
         }
 
