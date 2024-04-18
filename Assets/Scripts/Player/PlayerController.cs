@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
             {
                 // Start firing
                 isFiring = true;
-                audioManager.PlaySFX(audioManager.Shooting);
             }
             else
             {

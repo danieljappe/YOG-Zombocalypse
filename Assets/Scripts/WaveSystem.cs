@@ -81,9 +81,9 @@ public class WaveSystem : MonoBehaviour
             }
             else
             {
+                audioManager.PlaySFX(audioManager.alarm);
                 cannotStartWaveText.enabled = false; 
                 StartNextWave();
-                audioManager.PlaySFX(audioManager.alarm);
                 wavestart.enabled = true;
                 StartCoroutine(HideWavestart());
 
@@ -111,6 +111,7 @@ public class WaveSystem : MonoBehaviour
             waveCompleted.enabled = true;
             cannotStartWaveText.enabled = false;
             activatealarm.enabled = true;
+            audioManager.PlaySFX(audioManager.succeswave);
 
 
         }else{
@@ -129,6 +130,11 @@ public class WaveSystem : MonoBehaviour
     {
         Debug.Log("Vous avez gagné !");
         winText.enabled = true;
+        audioManager.PlaySFX(audioManager.victorySound);
+        back2ZC.enabled = false;
+        back1ZC.enabled = false;
+        waveV.enabled = false;
+        
     }
 
     void SpawnWave()

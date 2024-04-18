@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip hitplayer;
     public AudioClip alarm;
     public AudioClip ZombieBoss;
+    public AudioClip succeswave;
+    public AudioClip victorySound;
 
     public void PlaySFX(AudioClip clip){
 
