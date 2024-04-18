@@ -24,6 +24,11 @@ public class WaveSystem : MonoBehaviour
     public Text waveBegin;
     public Text cannotStartWaveText;
     public Text winText;
+    public Image activatealarm;
+    public Image wavestart;
+    public Image back1ZC;
+    public Image back2ZC;
+    public Image waveV;
 
     public KeyCode startWaveKey = KeyCode.E; 
     public Transform objectToInteractWith; 
@@ -50,6 +55,11 @@ public class WaveSystem : MonoBehaviour
         waveBegin.enabled = false;
         cannotStartWaveText.enabled = false;
         winText.enabled = false;
+        activatealarm.enabled = false;
+        wavestart.enabled = false;
+        back2ZC.enabled = true;
+        back2ZC.enabled = false;
+        waveV.enabled = false;
         
     }
 
@@ -66,15 +76,27 @@ public class WaveSystem : MonoBehaviour
         {
             if (totalZombiesAlive > 0)
             {
-                cannotStartWaveText.enabled = true; 
+                cannotStartWaveText.enabled = true;
+                wavestart.enabled = false; 
             }
             else
             {
                 cannotStartWaveText.enabled = false; 
                 StartNextWave();
                 audioManager.PlaySFX(audioManager.alarm);
+                wavestart.enabled = true;
+                StartCoroutine(HideWavestart());
+
             }
         }
+
+        IEnumerator HideWavestart()
+        {
+             yield return new WaitForSeconds(9);
+             wavestart.enabled = false;
+        }
+
+        
 
         if (Input.GetKeyDown(startWaveKey) && totalZombiesAlive > 0)
         {
@@ -88,11 +110,13 @@ public class WaveSystem : MonoBehaviour
             alarmText.enabled = true;
             waveCompleted.enabled = true;
             cannotStartWaveText.enabled = false;
+            activatealarm.enabled = true;
 
 
         }else{
             alarmText.enabled = false;
             waveCompleted.enabled = false;
+            activatealarm.enabled = false;
         }
 
         if (currentWaveNumber == waves.Length - 1 && totalZombiesAlive == 0 && !canSpawn)
@@ -138,11 +162,17 @@ public class WaveSystem : MonoBehaviour
         if(totalZombiesAlive == 0){
 
             remainingZombiesText.text = "Wave Clear";
+            back2ZC.enabled = false;
+            back1ZC.enabled = true;
+            waveV.enabled = true;
         }
 
         else
         {
-            remainingZombiesText.text = "Remaining Zombies: " + totalZombiesAlive.ToString();
+            remainingZombiesText.text = "" + totalZombiesAlive.ToString();
+            back2ZC.enabled = true;
+            back1ZC.enabled = false;
+            waveV.enabled = false;
         }
     }
 
