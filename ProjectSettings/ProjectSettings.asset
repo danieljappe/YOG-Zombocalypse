@@ -913,11 +913,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 02b750b6-885f-428e-8da2-fb6a3a7519c0
+  cloudProjectId: 14cfcde2-a004-4c7e-b0c1-199fc3e537ab
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: My project 2024-02-23_10-48-25
-  organizationId: maxance-kylstra
+  projectName: My project
+  organizationId: danieljappe
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
