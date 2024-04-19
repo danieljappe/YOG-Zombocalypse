@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Plane
   - hit
+  - ZombieAttack
+  - Bullet
+  - Loot
+  - Zombie
+  - Shotgun
+  - HealthPack
   layers:
   - Default
   - TransparentFX
@@ -13,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Loot
   - 
   - 
   - 

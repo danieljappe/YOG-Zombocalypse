@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8523851142956063078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 688823768934673401}
+  - component: {fileID: 6679727092934567359}
+  - component: {fileID: 727701645015355347}
+  - component: {fileID: 2318908634966570425}
+  - component: {fileID: 5556082720268341420}
+  m_Layer: 5
+  m_Name: AlarmText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &688823768934673401
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523851142956063078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.7344253, y: 2.8438513, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1031, y: -1087}
+  m_SizeDelta: {x: 304.6497, y: 51.4142}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6679727092934567359
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523851142956063078}
+  m_CullTransparentMesh: 1
+--- !u!114 &727701645015355347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523851142956063078}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e2c493efed5b448a4ad8bf20ad9603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 2318908634966570425}
+--- !u!114 &2318908634966570425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523851142956063078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+    m_FontSize: 48
+    m_FontStyle: 1
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 150
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Activate alarm to start next wave
+
+'
+--- !u!114 &5556082720268341420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523851142956063078}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40271b3d7d242ba408e5f1c90abbb142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves: []
+  spawnPoints: []
+  waveText: {fileID: 0}
+  remainingZombiesText: {fileID: 0}
+  alarmText: {fileID: 0}
+  waveCompleted: {fileID: 0}
+  waveBegin: {fileID: 0}
+  cannotStartWaveText: {fileID: 0}
+  winText: {fileID: 0}
+  activatealarm: {fileID: 0}
+  wavestart: {fileID: 0}
+  back1ZC: {fileID: 0}
+  back2ZC: {fileID: 0}
+  waveV: {fileID: 0}
+  startWaveKey: 101
+  objectToInteractWith: {fileID: 0}
